@@ -18,7 +18,9 @@ pipeline {
             steps {
                 script {
                     echo "Nexus publishing"
-                        sh 'mvn clean package'
+                    withMaven(globalMavenSettingsConfig: 'Nexux-repo', maven: 'maven3', traceability: true) {
+                    sh 'mvn deploy'
+                    }
                 }
             }
         }
