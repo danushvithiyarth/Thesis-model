@@ -15,6 +15,15 @@ pipeline {
                 }
             }
         }
+        stage('Nexus') {
+            steps {
+                script {
+                    echo "Nexus publishing"
+                        sh 'mvn clean package'
+                }
+            }
+        }
+        /*
         stage('Build') {
             steps {
                 script {
@@ -33,6 +42,7 @@ pipeline {
                 }
             }
         }
+        */
     }
 }
 
